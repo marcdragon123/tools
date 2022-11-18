@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.projectBackup</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/Scripts/Unix/mac-project-backup.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <!--  Weekdays are 1 - 5; Sunday is 0 and 7   -->
+    <!-- Thursday at 12:30 PM (24 H format) -->
+    <array>
+        <dict>
+            <key>Weekday</key>
+            <integer>4</integer>
+            <key>Hour</key>
+            <integer>12</integer>
+            <key>Minute</key>
+            <integer>30</integer>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -8,6 +8,10 @@ BACKUP_LOCATION="$HOME/Projects"
 TIME="2w"
 FORMAT="%Y-%m-%d-%H-%M"
 
+TITLE="Backup Script"
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 DATE_TO_CLEAN=$(date -v-$TIME +$FORMAT)
 TODAY=$(date +$FORMAT)
 
@@ -51,3 +55,10 @@ do
         echo "Removed File: $FILE_NAME"
     fi
 done
+
+if [ -f "${BACKUP_STORAGE_LOCATION}/${BACKUP_FILE_PREFIX}-${TODAY}.tar.gz" ]
+then
+    osascript $SCRIPT_DIR/notify.scpt "The backup completed successfully" "$TITLE -- SUCCESS" "nosound"
+else
+    osascript $SCRIPT_DIR/notify.scpt "The backup failed" "$TITLE -- ERROR" "sound"
+fi
